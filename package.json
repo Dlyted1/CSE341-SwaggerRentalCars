@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.5.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "cse341-swaggerrentalcars",
+  "description": "CSE341 Group10 API Swagger Rental Cars",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dlyted1/cse342v2-node-project2.git"
+  },
+  "author": "Kathleen Moore for Group10",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dlyted1/cse342v2-node-project2/issues"
+  },
+  "homepage": "https://github.com/Dlyted1/cse342v2-node-project2#readme"
+}
