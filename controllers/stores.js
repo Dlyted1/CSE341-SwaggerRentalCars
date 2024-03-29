@@ -26,10 +26,10 @@ const getAll = (req, res) => {
 const getSingle = (req, res) => {
   // swagger.tags=['stores']
   /*
-    #swagger.description = 'Returns a contact from the database using the stores ID number';
+    #swagger.description = 'Returns a store from the database using the stores ID number';
     */
     if (!ObjectId.isValid(req.params.id)) {
-      res.status(400).json('Must use a valid contact id to find a contact.');
+      res.status(400).json('Must use a valid store.');
     }
     const contactId = new ObjectId(req.params.id);
     mongodb

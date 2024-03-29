@@ -26,10 +26,10 @@ const getAll = (req, res) => {
 const getSingle = (req, res) => {
   // swagger.tags=['renters']
   /*
-    #swagger.description = 'Returns a contact from the database using the renters ID number';
+    #swagger.description = 'Returns a Renters from the database using the renters ID number';
     */
     if (!ObjectId.isValid(req.params.id)) {
-      res.status(400).json('Must use a valid contact id to find a contact.');
+      res.status(400).json('Must use a valid renter id.');
     }
     const contactId = new ObjectId(req.params.id);
     mongodb
