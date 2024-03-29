@@ -5,12 +5,12 @@ const validation = require('../middleware/validate');
 
 router.get('/', employeesController.getAll);
 
-// router.get('/:id', employeesController.getCar);
+router.get('/:id', employeesController.getEmployee);
 
-// router.post('/', validation.saveEmployee, employeesController.createEmployee);
+router.post('/',  employeesController.createEmployee);
 
-// router.put('/:id', validation.saveEmployee, employeesController.updateEmployee);
+router.put('/:id', employeesController.updateEmployee);
 
-// router.delete('/:id', employeesController.deleteEmployee);
+router.delete('/:id', employeesController.deleteEmployee);
 
 module.exports = router

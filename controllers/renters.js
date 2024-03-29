@@ -3,55 +3,57 @@ const ObjectId = require('mongodb').ObjectId;// Id mongo assigns all database en
 
 let err;
 
-const getAll = (req, res) => {
+const getAll = async (req, res) => {
   // swagger.tags=['renters']
   /*
     #swagger.description = 'Returns all renters in the database.';
     */
-  mongodb
-    .getDb()
+    const result = await mongodb.getDb()
     .db()
     .collection('renters')
-    .find()
-    .toArray((err, result) => {
-      if (err) {
-        res.status(400).json({ message: err });
-      };
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(result);
+    .find();
+    result.toArray().then((renters) => {
+      res.setHeader('Content-Type', "application/json");
+      res.status(200).json(renters);
     });
-};
+  };
 
 
-const getSingle = (req, res) => {
+const getRenter = async (req, res) => {
   // swagger.tags=['renters']
   /*
     #swagger.description = 'Returns a Renters from the database using the renters ID number';
     */
-  if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid renter id.');
-  }
-  const renterId = new ObjectId(req.params.id);
-  mongodb
-    .getDb()
-    .db()
-    .collection('renters')
-    .find({ _id: renterIdId })
-    .toArray((err, result) => {
-      if (err) {
-        res.status(400).json({ message: err });
-      };
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(result[0]);
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a valid renter id.')
+    }
+    const renterId = new ObjectId(req.params.id)
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a valid renter id.')
+    }
+    const result = await mongodb.getDb().db().collection('renters').find({ _id: renterId });
+    result.toArray().then((renter) => {
+     res.setHeader('Content-Type', "application/json");
+     res.status(200).json(renter[0]);
     });
-};
+  };
 
-
+  const createRenter = (req, res) => {
+    pass
+  }
+  
+  const updateRenter = (req, res) => {
+    pass
+  }
+  
+  const deleteRenter = (req, res) => {
+    pass
+  }
 
 module.exports = {
   getAll,
-  getSingle,
-  // createRenter,
-  // updateRenter,
-  // deleteRenter
+  getRenter,
+  createRenter,
+  updateRenter,
+  deleteRenter
 }
