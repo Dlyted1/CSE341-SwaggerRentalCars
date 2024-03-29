@@ -5,7 +5,7 @@ const doc = {
     title: 'Swagger Rental Cars API',
     description: 'Swagger Rental Cars API'
   },
-  host: 'project1-h052.onrender.com',
+  host: 'cse341-swaggerrentalcars.onrender.com',
   schemes: ['https']
 };
 
