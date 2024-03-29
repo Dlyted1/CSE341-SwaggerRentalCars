@@ -10,7 +10,7 @@ const getAll = (req, res) => {
     #swagger.description = 'Returns all employees in the database.';
     */
   mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection('employees')
     .find()
@@ -32,12 +32,12 @@ const getSingle = (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid employee id.');
   }
-  const contactId = new ObjectId(req.params.id);
+  const employeeId = new ObjectId(req.params.id);
   mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection('employees')
-    .find({ _id: contactId })
+    .find({ _id: employeeId })
     .toArray((err, result) => {
       if (err) {
         res.status(400).json({ message: err });
