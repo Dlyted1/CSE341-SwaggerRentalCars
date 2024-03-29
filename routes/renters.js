@@ -1,3 +1,5 @@
+const express = require('express');
+const router = express();
 const rentersController = require('../controllers/renters');
 const validation = require('../middleware/validate');
 

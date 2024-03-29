@@ -1,3 +1,5 @@
+const express = require('express');
+const router = express();
 const storesController = require('../controllers/stores');
 const validation = require('../middleware/validate');
 
