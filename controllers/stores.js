@@ -3,55 +3,59 @@ const ObjectId = require('mongodb').ObjectId;// Id mongo assigns all database en
 
 let err;
 
-const getAll = (req, res) => {
+const getAll = async (req, res) => {
   // swagger.tags=['stores']
   /*
     #swagger.description = 'Returns all stores in the database.';
     */
-  mongodb
-    .getDb()
+    const result = await mongodb.getDb()
     .db()
     .collection('stores')
-    .find()
-    .toArray((err, result) => {
-      if (err) {
-        res.status(400).json({ message: err });
-      };
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(result);
+    .find();
+    result.toArray().then((stores) => {
+      res.setHeader('Content-Type', "application/json");
+      res.status(200).json(stores);
     });
-};
+  };
 
 
-const getSingle = (req, res) => {
+const getStore = async (req, res) => {
   // swagger.tags=['stores']
   /*
     #swagger.description = 'Returns a store from the database using the stores ID number';
     */
-  if (!ObjectId.isValid(req.params.id)) {
-    res.status(400).json('Must use a valid store.');
-  }
-  const storeId = new ObjectId(req.params.id);
-  mongodb
-    .getDb()
-    .db()
-    .collection('stores')
-    .find({ _id: storeId })
-    .toArray((err, result) => {
-      if (err) {
-        res.status(400).json({ message: err });
-      };
-      res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(result[0]);
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a valid store id.')
+    }
+    const storeId = new ObjectId(req.params.id)
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a valid store id.')
+    }
+    const result = await mongodb.getDb().db().collection('stores').find({ _id: storeId });
+    result.toArray().then((store) => {
+     res.setHeader('Content-Type', "application/json");
+     res.status(200).json(store[0]);
     });
-};
+  };
+
+  const createStore = (req, res) => {
+    pass
+  }
+  
+  const updateStore = (req, res) => {
+    pass
+  }
+  
+  const deleteStore = (req, res) => {
+    pass
+  }
 
 
 
 module.exports = {
   getAll,
-  getSingle,
-  // createStore,
-  // updateStore,
-  // deleteStore
+  getStore,
+  createStore,
+  updateStore,
+  deleteStore
 }

@@ -5,14 +5,12 @@ const validation = require('../middleware/validate');
 
 router.get('/', rentersController.getAll);
 
-router.get('/:id', rentersController.getSingle);
+router.get('/:id', rentersController.getRenter);
 
-// router.get('/:status', employeesController.getCarByStatus);
+router.post('/', rentersController.createRenter);
 
-// router.post('/', validation.saveRenter, rentersController.createRenter);
+router.put('/:id',  rentersController.updateRenter);
 
-// router.put('/:id', validation.saveRenter, rentersController.updateRenter);
-
-// router.delete('/:id', rentersController.deleteRenter);
+router.delete('/:id', rentersController.deleteRenter);
 
 module.exports = router
