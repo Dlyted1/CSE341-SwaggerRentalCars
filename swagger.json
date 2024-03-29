@@ -16,7 +16,7 @@
   "paths": {
     "/": {
       "get": {
-        "description": "Loads Home Page",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -255,6 +255,26 @@
         }
       }
     },
+    "/employees/login": {
+      "post": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/employees/logout": {
+      "post": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/renters/": {
       "get": {
         "description": "Returns all renters in the database.",
@@ -325,16 +345,6 @@
             "type": "string"
           }
         ],
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/renters/{status}": {
-      "get": {
-        "description": "",
         "responses": {
           "default": {
             "description": ""

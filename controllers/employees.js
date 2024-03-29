@@ -46,6 +46,14 @@ const getEmployee = async (req, res) => {
     */
     pass
   }
+
+  const employeeLogin = (req, res) => {
+    pass
+  }
+  
+  const employeeLogout = (req, res) => {
+    pass
+  }
   
   const updateEmployee = (req, res) => {
     pass
@@ -59,6 +67,8 @@ const getEmployee = async (req, res) => {
 module.exports = {
   getAll,
   getEmployee,
+  employeeLogin,
+  employeeLogout,
   createEmployee,
   updateEmployee,
   deleteEmployee

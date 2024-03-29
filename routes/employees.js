@@ -7,6 +7,10 @@ router.get('/', employeesController.getAll);
 
 router.get('/:id', employeesController.getEmployee);
 
+router.post('/login',  employeesController.employeeLogin);
+
+router.post('/logout',  employeesController.employeeLogout);
+
 router.post('/',  employeesController.createEmployee);
 
 router.put('/:id', employeesController.updateEmployee);
