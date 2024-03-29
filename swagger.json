@@ -10,13 +10,12 @@
   ],
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
     "/": {
       "get": {
-        "description": "",
+        "description": "Loads Home view",
         "responses": {
           "200": {
             "description": "OK"
