@@ -52,7 +52,7 @@ const getSingle = (req, res) => {
 module.exports = {
   getAll,
   getSingle,
-  createEmployee,
-  updateEmployee,
-  deleteEmployee
+  // createEmployee,
+  // updateEmployee,
+  // deleteEmployee
 }

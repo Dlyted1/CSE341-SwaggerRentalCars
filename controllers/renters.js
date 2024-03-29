@@ -51,7 +51,7 @@ const getSingle = (req, res) => {
 module.exports = {
   getAll,
   getSingle,
-  createRenter,
-  updateRenter,
-  deleteRenter
+  // createRenter,
+  // updateRenter,
+  // deleteRenter
 }

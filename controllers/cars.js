@@ -75,7 +75,7 @@ module.exports = {
   getAll,
   getCar,
   getCarByTag,
-  createCar,
-  updateCar,
-  deleteCar
+  // createCar,
+  // updateCar,
+  // deleteCar
 }

@@ -51,7 +51,7 @@ const getSingle = (req, res) => {
 module.exports = {
   getAll,
   getSingle,
-  createStore,
-  updateStore,
-  deleteStore
+  // createStore,
+  // updateStore,
+  // deleteStore
 }
