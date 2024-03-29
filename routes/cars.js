@@ -3,7 +3,9 @@ const validation = require('../middleware/validate');
 
 router.get('/', carsController.getAll);
 
-router.get('/:id', carsController.getSingle);
+router.get('/:id', carsController.getCar);
+
+router.get('/:tag', carsController.getCarByTag);
 
 router.post('/', validation.saveCar, carsController.createCar);
 

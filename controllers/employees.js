@@ -27,7 +27,7 @@ const getAll = (req, res) => {
 const getSingle = (req, res) => {
   // swagger.tags=['employees']
   /*
-    #swagger.description = 'Returns a employee from the database using the employees ID number';
+    #swagger.description = 'Returns a emoployee from the database using the employees ID number';
     */
     if (!ObjectId.isValid(req.params.id)) {
       res.status(400).json('Must use a valid employee id.');

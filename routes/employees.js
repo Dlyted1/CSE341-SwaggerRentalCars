@@ -3,7 +3,11 @@ const validation = require('../middleware/validate');
 
 router.get('/', employeesController.getAll);
 
-router.get('/:id', employeesController.getSingle);
+router.get('/:id', employeesController.getCar);
+
+router.get('/:status', employeesController.getCarByStatus);
+
+router.get('/:tags', employeesController.getCarByTags);
 
 router.post('/', validation.saveEmployee, employeesController.createEmployee);
 
