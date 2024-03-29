@@ -5,6 +5,8 @@ router.get('/', rentersController.getAll);
 
 router.get('/:id', rentersController.getSingle);
 
+router.get('/:status', employeesController.getCarByStatus);
+
 router.post('/', validation.saveRenter, rentersController.createRenter);
 
 router.put('/:id', validation.saveRenter, rentersController.updateRenter);

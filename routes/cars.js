@@ -5,7 +5,9 @@ router.get('/', carsController.getAll);
 
 router.get('/:id', carsController.getCar);
 
-router.get('/:tag', carsController.getCarByTag);
+router.get('/:status', carsController.getCarByStatus);
+
+router.get('/:tags', carsController.getCarByTag);
 
 router.post('/', validation.saveCar, carsController.createCar);
 

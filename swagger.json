@@ -101,6 +101,48 @@
         }
       }
     },
+    "/cars/{status}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/cars/{tags}": {
+      "get": {
+        "description": "Returns a car from the database using the cars tag number",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "tags",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
     "/employees/": {
       "get": {
         "description": "Returns all employees in the database.",
@@ -127,10 +169,7 @@
     },
     "/employees/{id}": {
       "get": {
-        "description": "Returns a employee from the database using the employees ID number",
-        "produces": [
-          "application/json"
-        ],
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -140,11 +179,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
+          "default": {
+            "description": ""
           }
         }
       },
@@ -254,6 +290,16 @@
             "type": "string"
           }
         ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/renters/{status}": {
+      "get": {
+        "description": "",
         "responses": {
           "default": {
             "description": ""
