@@ -1,7 +1,6 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;// Id mongo assigns all database entries (primary key)
 
-
 let err;
 
 const getAll = (req, res) => {

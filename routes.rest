@@ -1,0 +1,2 @@
+### Get all contacts
+GET https://cse341-swaggerrentalcars.onrender.com/cars HTTP/1.1
