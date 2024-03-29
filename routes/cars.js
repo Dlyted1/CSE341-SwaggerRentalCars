@@ -9,7 +9,7 @@ router.get('/:id', carsController.getCar);
 
 // router.get('/:status', carsController.getCarByStatus);
 
-router.get('/:tags', carsController.getCarByTag);
+router.get('/:tag', carsController.getCarByTag);
 
 // router.post('/', validation.saveCar, carsController.createCar);
 

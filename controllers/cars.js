@@ -9,7 +9,7 @@ const getAll = (req, res) => {
     #swagger.description = 'Returns all cars in the database.';
     */
   mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection('cars')
     .find()
@@ -31,12 +31,12 @@ const getCar = (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid car id.');
   }
-  const contactId = new ObjectId(req.params.id);
+  const carId = new ObjectId(req.params.id);
   mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection('cars')
-    .find({ _id: contactId })
+    .find({ _id: carId })
     .toArray((err, result) => {
       if (err) {
         res.status(400).json({ message: err });
@@ -54,9 +54,9 @@ const getCarByTag = (req, res) => {
   if (!ObjectId.isValid(req.params.tag)) {
     res.status(400).json('Must use a valid car id.');
   }
-  const contactId = new ObjectId(req.params.tag);
+  const carTag = new ObjectId(req.params.tag);
   mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection('cars')
     .find({ _tag: carTag })

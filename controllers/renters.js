@@ -9,7 +9,7 @@ const getAll = (req, res) => {
     #swagger.description = 'Returns all renters in the database.';
     */
   mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection('renters')
     .find()
@@ -31,12 +31,12 @@ const getSingle = (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid renter id.');
   }
-  const contactId = new ObjectId(req.params.id);
+  const renterId = new ObjectId(req.params.id);
   mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection('renters')
-    .find({ _id: contactId })
+    .find({ _id: renterIdId })
     .toArray((err, result) => {
       if (err) {
         res.status(400).json({ message: err });

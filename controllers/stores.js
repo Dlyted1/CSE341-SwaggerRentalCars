@@ -9,7 +9,7 @@ const getAll = (req, res) => {
     #swagger.description = 'Returns all stores in the database.';
     */
   mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection('stores')
     .find()
@@ -31,12 +31,12 @@ const getSingle = (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid store.');
   }
-  const contactId = new ObjectId(req.params.id);
+  const storeId = new ObjectId(req.params.id);
   mongodb
-    .getDatabase()
+    .getDb()
     .db()
     .collection('stores')
-    .find({ _id: contactId })
+    .find({ _id: storeId })
     .toArray((err, result) => {
       if (err) {
         res.status(400).json({ message: err });

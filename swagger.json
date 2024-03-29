@@ -5,7 +5,7 @@
     "description": "Swagger Rental Cars API",
     "version": "1.0.0"
   },
-  "host": "project1-h052.onrender.com",
+  "host": "cse341-swaggerrentalcars.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -17,6 +17,16 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       }
@@ -33,14 +43,6 @@
           },
           "400": {
             "description": "Bad Request"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "responses": {
-          "412": {
-            "description": "Precondition Failed"
           }
         }
       }
@@ -67,59 +69,9 @@
             "description": "Bad Request"
           }
         }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "412": {
-            "description": "Precondition Failed"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
       }
     },
-    "/cars/{status}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "status",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/cars/{tags}": {
+    "/cars/{tag}": {
       "get": {
         "description": "Returns a car from the database using the cars tag number",
         "produces": [
@@ -127,7 +79,7 @@
         ],
         "parameters": [
           {
-            "name": "tags",
+            "name": "tag",
             "in": "path",
             "required": true,
             "type": "string"
@@ -157,64 +109,6 @@
             "description": "Bad Request"
           }
         }
-      },
-      "post": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/employees/{id}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
       }
     },
     "/renters/": {
@@ -229,14 +123,6 @@
           },
           "400": {
             "description": "Bad Request"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
           }
         }
       }
@@ -263,48 +149,6 @@
             "description": "Bad Request"
           }
         }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/renters/{status}": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
       }
     },
     "/stores/": {
@@ -319,14 +163,6 @@
           },
           "400": {
             "description": "Bad Request"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
           }
         }
       }
@@ -351,38 +187,6 @@
           },
           "400": {
             "description": "Bad Request"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": ""
           }
         }
       }
