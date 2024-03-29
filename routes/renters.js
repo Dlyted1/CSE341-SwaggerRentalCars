@@ -5,12 +5,12 @@ router.get('/', rentersController.getAll);
 
 router.get('/:id', rentersController.getSingle);
 
-router.get('/:status', employeesController.getCarByStatus);
+// router.get('/:status', employeesController.getCarByStatus);
 
-router.post('/', validation.saveRenter, rentersController.createRenter);
+// router.post('/', validation.saveRenter, rentersController.createRenter);
 
-router.put('/:id', validation.saveRenter, rentersController.updateRenter);
+// router.put('/:id', validation.saveRenter, rentersController.updateRenter);
 
-router.delete('/:id', rentersController.deleteRenter);
+// router.delete('/:id', rentersController.deleteRenter);
 
 module.exports = router

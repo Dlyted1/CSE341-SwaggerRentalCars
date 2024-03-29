@@ -5,14 +5,14 @@ router.get('/', carsController.getAll);
 
 router.get('/:id', carsController.getCar);
 
-router.get('/:status', carsController.getCarByStatus);
+// router.get('/:status', carsController.getCarByStatus);
 
 router.get('/:tags', carsController.getCarByTag);
 
-router.post('/', validation.saveCar, carsController.createCar);
+// router.post('/', validation.saveCar, carsController.createCar);
 
-router.put('/:id', validation.saveCar, carsController.updateCar);
+// router.put('/:id', validation.saveCar, carsController.updateCar);
 
-router.delete('/:id', carsController.deleteCar);
+// router.delete('/:id', carsController.deleteCar);
 
 module.exports = router
