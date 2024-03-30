@@ -42,14 +42,48 @@ const getRenter = async (req, res) => {
     pass
   }
   
-  const updateRenter = (req, res) => {
-    pass
-  }
-  
-  const deleteRenter = (req, res) => {
-    pass
-  }
+  const updateRenter = async (req, res) => {
+    //pass
 
+
+    const renterId = new ObjectId(req.params.id);
+    const renter = {
+    
+      renterName: req.body.renterName
+
+
+        
+    
+  };
+    const response = await mongodb.getDatabase().db().collection('renters').replaceOne({_id: renterId} , renter);
+    if(response.modifiedCount > 0){
+        res.status(204).send();
+    }
+    else{
+        res.status(500).json(response.error || 'Some error occured while updating the renter information');
+    
+    }
+    
+  
+  
+  };
+  
+  const deleteRenter = async (req, res) => {
+   // pass
+
+
+   const renterId = new ObjectId(req.params.id);
+   const result = await mongodb.getDatabase().db().collection('renters').deleteOne({_id: renterId});
+   if (response.deleteCount > 0){
+       res.status(204).send();
+   }else {
+       res.status(500).json(response.error || 'Some error occured while deleting the renter information.');
+   }
+   
+  
+  };
+
+  
 module.exports = {
   getAll,
   getRenter,

@@ -55,13 +55,47 @@ const getEmployee = async (req, res) => {
     pass
   }
   
-  const updateEmployee = (req, res) => {
-    pass
-  }
+  const updateEmployee = async (req, res) => {
+    //pass
+
+    const employeeId = new ObjectId(req.params.id);
+    const employee = {
+    
+      empName: req.body.empName,
+      empEmail: req.body.empEmail,
+
+        
+    
+  };
+    const response = await mongodb.getDatabase().db().collection('employees').replaceOne({_id: employeeId} , employee);
+    if(response.modifiedCount > 0){
+        res.status(204).send();
+    }
+    else{
+        res.status(500).json(response.error || 'Some error occured while updating the employee information');
+    
+    }
+    
   
-  const deleteEmployee = (req, res) => {
-    pass
-  }
+  
+  };
+
+
+  
+  const deleteEmployee = async (req, res) => {
+    //pass
+
+    const employeeId = new ObjectId(req.params.id);
+    const result = await mongodb.getDatabase().db().collection('employees').deleteOne({_id: employeeId});
+    if (response.deleteCount > 0){
+        res.status(204).send();
+    }else {
+        res.status(500).json(response.error || 'Some error occured while deleting employee information.');
+    }
+    
+
+
+  };
 
 
 module.exports = {

@@ -42,13 +42,44 @@ const getStore = async (req, res) => {
     pass
   }
   
-  const updateStore = (req, res) => {
-    pass
-  }
+  const updateStore = async  (req, res) => {
+    //pass
+ 
+    
+    const storeId = new ObjectId(req.params.id);
+    const store = {
+    
+      storeName: req.body.storeName
+
+        
+    
+  };
+    const response = await mongodb.getDatabase().db().collection('stores').replaceOne({_id: storeId} , store);
+    if(response.modifiedCount > 0){
+        res.status(204).send();
+    }
+    else{
+        res.status(500).json(response.error || 'Some error occured while updating the store information');
+    
+    }
+    
   
-  const deleteStore = (req, res) => {
-    pass
-  }
+  
+  };
+  
+  const deleteStore = async (req, res) => {
+   //pass
+
+   const storeId = new ObjectId(req.params.id);
+   const result = await mongodb.getDatabase().db().collection('stores').deleteOne({_id: storeId});
+   if (response.deleteCount > 0){
+       res.status(204).send();
+   }else {
+       res.status(500).json(response.error || 'Some error occured while deleting the store information.');
+   }
+   
+  
+  };
 
 
 

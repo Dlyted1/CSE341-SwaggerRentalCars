@@ -1,6 +1,7 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;// Id mongo assigns all database entries (primary key)
 
+
 let err;
 
 const getAll = async (req, res) => {
@@ -86,7 +87,7 @@ const createCar = async (req, res) => {
     carModel: req.body.carModel,
     carYear: req.body.carYear,
     carTag: req.body.carTag,
-    carStatus: req.body.carStatus,
+    carStatus: req.body.carStatus
   }
   const response = await mongodb.getDb().db().collection('cars').insertOne(car)
   if (response.acknowledged) {
@@ -96,13 +97,49 @@ const createCar = async (req, res) => {
   };
 }
 
-const updateCar = (req, res) => {
-  pass
-}
+const updateCar =  async (req, res) => {
+  //pass
 
-const deleteCar = (req, res) => {
-  pass
-}
+  const carId = new ObjectId(req.params.id);
+  const car = {
+  
+    carMake: req.body.carMake,
+    carModel: req.body.carModel,
+    carYear: req.body.carYear,
+    carTag: req.body.carTag,
+    carStatus: req.body.carStatus
+      
+  
+};
+  const response = await mongodb.getDatabase().db().collection('cars').replaceOne({_id: carId} , car);
+  if(response.modifiedCount > 0){
+      res.status(204).send();
+  }
+  else{
+      res.status(500).json(response.error || 'Some error occured while updating the car information');
+  
+  }
+  
+
+
+};
+
+
+
+
+const deleteCar =  async (req, res) => {
+ // pass
+
+ const carId = new ObjectId(req.params.id);
+ const result = await mongodb.getDatabase().db().collection('cars').deleteOne({_id: carId});
+ if (response.deleteCount > 0){
+     res.status(204).send();
+ }else {
+     res.status(500).json(response.error || 'Some error occured while deleting the car information.');
+ }
+ 
+
+};
 
 
 module.exports = {
