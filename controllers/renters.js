@@ -49,12 +49,9 @@ const updateRenter = async (req, res) => {
   const renterId = new ObjectId(req.params.id);
   const renter = {
 
-    renterFName: req.body.renterFName
-      renterLName: req.body.renterLName
-      renterEmail: req.body.renterEmail
-
-
-
+    renterFName: req.body.renterFName,
+    renterLName: req.body.renterLName,
+    renterEmail: req.body.renterEmail
 
   };
   const response = await mongodb.getDatabase().db().collection('renters').replaceOne({ _id: renterId }, renter);
