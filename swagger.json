@@ -5,11 +5,10 @@
     "description": "Swagger Rental Cars API",
     "version": "1.0.0"
   },
-  "host": [
-    "cse341-swaggerrentalcars.onrender.com"
-  ],
+  "host": "cse341-swaggerrentalcars.onrender.com",
   "basePath": "/",
   "schemes": [
+    "http",
     "https"
   ],
   "paths": {
