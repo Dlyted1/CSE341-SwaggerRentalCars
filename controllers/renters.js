@@ -38,9 +38,24 @@ const getRenter = async (req, res) => {
   });
 };
 
-const createRenter = (req, res) => {
-  pass
-}
+const createRenter = async (req, res) => {
+  //pass
+  const renter_record = {
+
+    renterFName: req.body.renterFName,
+    renterLName: req.body.renterLName,
+    renterEmail: req.body.renterEmail,
+    renterDate: req.body.renterDate,
+    renterDateOfReturn: req.body.renterDateOfReturn
+  }
+  const response = await mongodb.getDb().db().collection('renters').insertOne(renter_record)
+  if (response.acknowledged) {
+    res.status(204).send()
+  } else {
+    res.status(500).json(response.error || 'An error occured while creating the renter record.')
+  };
+
+};
 
 const updateRenter = async (req, res) => {
   //pass
@@ -49,9 +64,12 @@ const updateRenter = async (req, res) => {
   const renterId = new ObjectId(req.params.id);
   const renter = {
 
+
     renterFName: req.body.renterFName,
     renterLName: req.body.renterLName,
-    renterEmail: req.body.renterEmail
+    renterEmail: req.body.renterEmail,
+    renterDate: req.body.renterDate,
+    renterDateOfReturn: req.body.renterDateOfReturn
 
   };
   const response = await mongodb.getDatabase().db().collection('renters').replaceOne({ _id: renterId }, renter);

@@ -38,14 +38,24 @@ const getEmployee = async (req, res) => {
   });
 };
 
-const createEmployee = (req, res) => {
+const createEmployee = async (req, res) => {
   // swagger.tags=['employees']
-  /*
-    #swagger.description = 'Create a employee in the database, every field is required. The empolyee ID number is automatically assigned by the database after submition.
-    Any field that is ommitted will be set to "NULL"';
-    */
-  pass
-}
+  const employee_record = {
+
+    empFName: req.body.empFName,
+    empLName: req.body.empLName,
+    empEmail: req.body.empEmail,
+    empPhone: req.body.empPhone,
+    empAddress: req.body.empAddress
+  }
+  const response = await mongodb.getDb().db().collection('employees').insertOne(employee_record)
+  if (response.acknowledged) {
+    res.status(204).send()
+  } else {
+    res.status(500).json(response.error || 'An error occured while creating the employee.')
+  };
+
+};
 
 const employeeLogin = (req, res) => {
   pass
@@ -64,7 +74,8 @@ const updateEmployee = async (req, res) => {
     empFName: req.body.empFName,
     empLName: req.body.empLName,
     empEmail: req.body.empEmail,
-    empPhone: req.body.empPhone
+    empPhone: req.body.empPhone,
+    empAddress: req.body.empAddress
 
 
 

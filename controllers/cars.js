@@ -95,7 +95,8 @@ const createCar = async (req, res) => {
   } else {
     res.status(500).json(response.error || 'An error occured while creating the car.')
   };
-}
+
+};
 
 const updateCar =  async (req, res) => {
   //pass

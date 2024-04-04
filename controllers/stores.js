@@ -38,9 +38,26 @@ const getStore = async (req, res) => {
   });
 };
 
-const createStore = (req, res) => {
-  pass
-}
+const createStore = async (req, res) => {
+  //pass
+  const store_record = {
+
+    storeName: req.body.storeName,
+    storeManager: req.body.storeManager,
+    storeState: req.body.storeState,
+    storePhone: req.body.storePhone,
+    storeEmail: req.body.storeEmail,
+    storeCapacity: req.body.storeCapacity,
+    storeBrandType: req.body.storeBrandType
+  }
+  const response = await mongodb.getDb().db().collection('stores').insertOne(store_record)
+  if (response.acknowledged) {
+    res.status(204).send()
+  } else {
+    res.status(500).json(response.error || 'An error occured while creating the store record.')
+  };
+
+};
 
 const updateStore = async (req, res) => {
   //pass
@@ -53,9 +70,9 @@ const updateStore = async (req, res) => {
     storeManager: req.body.storeManager,
     storeState: req.body.storeState,
     storePhone: req.body.storePhone,
-    storeEmail: req.body.storeEmail
-
-
+    storeEmail: req.body.storeEmail,
+    storeCapacity: req.body.storeCapacity,
+    storeBrandType: req.body.storeBrandType
 
   };
   const response = await mongodb.getDatabase().db().collection('stores').replaceOne({ _id: storeId }, store);
