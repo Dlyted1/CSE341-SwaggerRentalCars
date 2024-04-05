@@ -1,4 +1,4 @@
-const app = require('../server')
+const app = require('../server.js')
 const supertest = require('supertest');
 const { expect } = require('@jest/globals');
 const request = supertest(app)
