@@ -39,9 +39,12 @@ const getStore = async (req, res) => {
 };
 
 const createStore = async (req, res) => {
-  //pass
+  // swagger.tags=['stores']
+  /*
+    #swagger.description = 'Create a store in the database, every field is required. The store ID number is automatically assigned by the database after submition.
+    Any field that is ommitted will be set to "NULL"';
+    */
   const store_record = {
-
     storeName: req.body.storeName,
     storeManager: req.body.storeManager,
     storeState: req.body.storeState,
@@ -56,13 +59,13 @@ const createStore = async (req, res) => {
   } else {
     res.status(500).json(response.error || 'An error occured while creating the store record.')
   };
-
 };
 
 const updateStore = async (req, res) => {
-  //pass
-
-
+   // swagger.tags=['stores']
+  /*
+    #swagger.description = 'Update a store in the database, every field is required. Any field that is ommitted will be set to "NULL"';
+    */
   const storeId = new ObjectId(req.params.id);
   const store = {
 
@@ -73,7 +76,6 @@ const updateStore = async (req, res) => {
     storeEmail: req.body.storeEmail,
     storeCapacity: req.body.storeCapacity,
     storeBrandType: req.body.storeBrandType
-
   };
   const response = await mongodb.getDatabase().db().collection('stores').replaceOne({ _id: storeId }, store);
   if (response.modifiedCount > 0) {
@@ -81,25 +83,21 @@ const updateStore = async (req, res) => {
   }
   else {
     res.status(500).json(response.error || 'Some error occured while updating the store information');
-
   }
-
-
-
 };
 
 const deleteStore = async (req, res) => {
-  //pass
-
+  // swagger.tags=['stores']
+  /*
+    #swagger.description = 'Delete a store from the database, every field is required.;
+    */
   const storeId = new ObjectId(req.params.id);
-  const result = await mongodb.getDatabase().db().collection('stores').deleteOne({ _id: storeId });
+  const response = await mongodb.getDatabase().db().collection('stores').deleteOne({ _id: storeId });
   if (response.deleteCount > 0) {
     res.status(204).send();
   } else {
     res.status(500).json(response.error || 'Some error occured while deleting the store information.');
   }
-
-
 };
 
 

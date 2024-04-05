@@ -39,9 +39,12 @@ const getRenter = async (req, res) => {
 };
 
 const createRenter = async (req, res) => {
-  //pass
+  // swagger.tags=['renters']
+  /*
+    #swagger.description = 'Create a renter in the database, every field is required. The renter ID number is automatically assigned by the database after submition.
+    Any field that is ommitted will be set to "NULL"';
+    */
   const renter_record = {
-
     renterFName: req.body.renterFName,
     renterLName: req.body.renterLName,
     renterEmail: req.body.renterEmail,
@@ -58,19 +61,17 @@ const createRenter = async (req, res) => {
 };
 
 const updateRenter = async (req, res) => {
-  //pass
-
-
+  // swagger.tags=['renters']
+  /*
+    #swagger.description = 'Update a renter in the database, every field is required. Any field that is ommitted will be set to "NULL"';
+    */
   const renterId = new ObjectId(req.params.id);
   const renter = {
-
-
     renterFName: req.body.renterFName,
     renterLName: req.body.renterLName,
     renterEmail: req.body.renterEmail,
     renterDate: req.body.renterDate,
     renterDateOfReturn: req.body.renterDateOfReturn
-
   };
   const response = await mongodb.getDatabase().db().collection('renters').replaceOne({ _id: renterId }, renter);
   if (response.modifiedCount > 0) {
@@ -80,24 +81,20 @@ const updateRenter = async (req, res) => {
     res.status(500).json(response.error || 'Some error occured while updating the renter information');
 
   }
-
-
-
 };
 
 const deleteRenter = async (req, res) => {
-  // pass
-
-
+  // swagger.tags=['renters']
+  /*
+    #swagger.description = 'Delete a renter from the database.;
+    */
   const renterId = new ObjectId(req.params.id);
-  const result = await mongodb.getDatabase().db().collection('renters').deleteOne({ _id: renterId });
+  const response = await mongodb.getDatabase().db().collection('renters').deleteOne({ _id: renterId });
   if (response.deleteCount > 0) {
     res.status(204).send();
   } else {
     res.status(500).json(response.error || 'Some error occured while deleting the renter information.');
   }
-
-
 };
 
 

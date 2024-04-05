@@ -1,5 +1,308 @@
-### Get all contacts
+##/* ****************************************
+##*  Deliver cars from render
+##* *************************************** */
+
+### Get all cars
 GET https://cse341-swaggerrentalcars.onrender.com/cars HTTP/1.1
 
-### Get all contacts
-GET http://localhost:8080/cars HTTP/1.1
+### Get cars by Id
+GET https://cse341-swaggerrentalcars.onrender.com/cars/65f61a798a0eb4614c1f0f7f HTTP/1.1
+
+### Create a cars
+POST https://cse341-swaggerrentalcars.onrender.com/cars HTTP/1.1
+Content-Type: application/json
+
+{
+    "carMake": "Honda",
+    "carModel": "Civic",
+    "carYear": "1980",
+    "carTag": "123ABC",
+    "carStatus": "available",
+}
+
+### Put cars (Change a cars)
+PUT https://cse341-swaggerrentalcars.onrender.com/cars/65f6255f433c69d5913e8142 HTTP/1.1
+Content-Type: application/json
+
+{
+    "carMake": "Honda",
+    "carModel": "Civic",
+    "carYear": "1980",
+    "carTag": "123ABC",
+    "carStatus": "available",
+}
+
+### Delete cars
+DELETE https://cse341-swaggerrentalcars.onrender.com/cars/65f61a798a0eb4614c1f0f7f HTTP/1.1
+
+##/* ****************************************
+##*  Deliver cars from localhost
+##* *************************************** */
+
+### Get all cars
+GET http://localhost:3000/cars
+
+### Get cars by ID
+GET http://localhost:3000/cars/65f61a798a0eb4614c1f0f7f
+
+###Create cars 
+POST http://localhost:3000/cars HTTP/1.1 
+content-type: application/json
+
+{
+    "carMake": "Honda",
+    "carModel": "Civic",
+    "carYear": "1980",
+    "carTag": "123ABC",
+    "carStatus": "available",
+}
+
+### PUT cars 
+PUT http://localhost:3000/cars/65f625ef433c69d5913e8143 HTTP/1.1 
+content-type: application/json
+
+{
+    "carMake": "Honda",
+    "carModel": "Civic",
+    "carYear": "1980",
+    "carTag": "123ABC",
+    "carStatus": "available",
+}
+
+### DELETE cars 
+DELETE http://localhost:3000/cars/65f62ebe452141a60cbbf27f HTTP/1.1
+
+
+
+##/* ****************************************
+##*  Deliver employees from render
+##* *************************************** */
+
+### Get all employees
+GET https://cse341-swaggerrentalcars.onrender.com/employees HTTP/1.1
+
+### Get employee by Id
+GET https://cse341-swaggerrentalcars.onrender.com/employees/65f61a798a0eb4614c1f0f7f HTTP/1.1
+
+### Create a employee
+POST https://cse341-swaggerrentalcars.onrender.com/employees HTTP/1.1
+Content-Type: application/json
+
+ {
+    "empFName": "John",
+    "empLName": "Field",
+    "empEmail": "jf@test.com",
+    "empPhone": "+84565874235",
+    "empAddress": "402 Wallaby Way, Sydney"
+}
+
+### Put employee (Change a employee)
+PUT https://cse341-swaggerrentalcars.onrender.com/employees/65f6255f433c69d5913e8142 HTTP/1.1
+Content-Type: application/json
+
+ {
+    "empFName": "John",
+    "empLName": "Field",
+    "empEmail": "jf@test.com",
+    "empPhone": "+84565874235",
+    "empAddress": "402 Wallaby Way, Sydney"
+}
+
+### Delete employee
+DELETE https://cse341-swaggerrentalcars.onrender.com/employees/65f61a798a0eb4614c1f0f7f HTTP/1.1
+
+##/* ****************************************
+##*  Deliver employees from localhost
+##* *************************************** */
+
+### Get all employees
+GET http://localhost:3000/employees
+
+### Get employee by ID
+GET http://localhost:3000/employees/65f61a798a0eb4614c1f0f7f
+
+###Create employee 
+POST http://localhost:3000/employees HTTP/1.1 
+content-type: application/json
+
+ {
+    "empFName": "John",
+    "empLName": "Field",
+    "empEmail": "jf@test.com",
+    "empPhone": "+84565874235",
+    "empAddress": "402 Wallaby Way, Sydney"
+}
+
+### PUT employee 
+PUT http://localhost:3000/employees/65f625ef433c69d5913e8143 HTTP/1.1 
+content-type: application/json
+
+ {
+    "empFName": "John",
+    "empLName": "Field",
+    "empEmail": "jf@test.com",
+    "empPhone": "+84565874235",
+    "empAddress": "402 Wallaby Way, Sydney"
+}
+
+### DELETE employee 
+DELETE http://localhost:3000/employees/65f62ebe452141a60cbbf27f HTTP/1.1
+
+
+##/* ****************************************
+##*  Deliver renters from render
+##* *************************************** */
+
+### Get all renters
+GET https://cse341-swaggerrentalcars.onrender.com/renters HTTP/1.1
+
+### Get renter by Id
+GET https://cse341-swaggerrentalcars.onrender.com/renters/65f61a798a0eb4614c1f0f7f HTTP/1.1
+
+### Create a renter
+POST https://cse341-swaggerrentalcars.onrender.com/renters HTTP/1.1
+Content-Type: application/json
+
+ {
+    "empFName": "John",
+    "empLName": "Field",
+    "empEmail": "jf@test.com",
+    "empPhone": "+84565874235",
+    "empAddress": "402 Wallaby Way, Sydney"
+}
+
+### Put renter (Change a renter)
+PUT https://cse341-swaggerrentalcars.onrender.com/renters/65f6255f433c69d5913e8142 HTTP/1.1
+Content-Type: application/json
+
+ {
+    "empFName": "John",
+    "empLName": "Field",
+    "empEmail": "jf@test.com",
+    "empPhone": "+84565874235",
+    "empAddress": "402 Wallaby Way, Sydney"
+}
+
+### Delete renter
+DELETE https://cse341-swaggerrentalcars.onrender.com/renters/65f61a798a0eb4614c1f0f7f HTTP/1.1
+
+##/* ****************************************
+##*  Deliver renters from localhost
+##* *************************************** */
+
+### Get all renters
+GET http://localhost:3000/renters
+
+### Get renter by ID
+GET http://localhost:3000/renters/65f61a798a0eb4614c1f0f7f
+
+###Create renter 
+POST http://localhost:3000/renters HTTP/1.1 
+content-type: application/json
+
+ {
+    "empFName": "John",
+    "empLName": "Field",
+    "empEmail": "jf@test.com",
+    "empPhone": "+84565874235",
+    "empAddress": "402 Wallaby Way, Sydney"
+}
+
+### PUT renter 
+PUT http://localhost:3000/renters/65f625ef433c69d5913e8143 HTTP/1.1 
+content-type: application/json
+
+ {
+    "empFName": "John",
+    "empLName": "Field",
+    "empEmail": "jf@test.com",
+    "empPhone": "+84565874235",
+    "empAddress": "402 Wallaby Way, Sydney"
+}
+
+### DELETE renter 
+DELETE http://localhost:3000/renters/65f62ebe452141a60cbbf27f HTTP/1.1
+
+
+
+##/* ****************************************
+##*  Deliver stores from render
+##* *************************************** */
+
+### Get all stores
+GET https://cse341-swaggerrentalcars.onrender.com/stores HTTP/1.1
+
+### Get store by Id
+GET https://cse341-swaggerrentalcars.onrender.com/stores/65f61a798a0eb4614c1f0f7f HTTP/1.1
+
+### Create a store
+POST https://cse341-swaggerrentalcars.onrender.com/stores HTTP/1.1
+Content-Type: application/json
+
+  {
+    "storeName": "Swagger Rental NorthEast",
+    "storeManager": "Ricardo Morales",
+    "storeState": "Oregon",
+    "storePhone": "+84565874235",
+    "storeEmail": "northweststore@gmail.com",
+    "storeCapacity": "14 x 16 ft.",
+    "storeBrandType": "Tesla"
+  }
+
+### Put store (Change a store)
+PUT https://cse341-swaggerrentalcars.onrender.com/stores/65f6255f433c69d5913e8142 HTTP/1.1
+Content-Type: application/json
+
+  {
+    "storeName": "Swagger Rental NorthEast",
+    "storeManager": "Ricardo Morales",
+    "storeState": "Oregon",
+    "storePhone": "+84565874235",
+    "storeEmail": "northweststore@gmail.com",
+    "storeCapacity": "14 x 16 ft.",
+    "storeBrandType": "Tesla"
+  }
+
+### Delete store
+DELETE https://cse341-swaggerrentalcars.onrender.com/stores/65f61a798a0eb4614c1f0f7f HTTP/1.1
+
+##/* ****************************************
+##*  Deliver stores from localhost
+##* *************************************** */
+
+### Get all stores
+GET http://localhost:3000/stores
+
+### Get store by ID
+GET http://localhost:3000/stores/65f61a798a0eb4614c1f0f7f
+
+###Create store 
+POST http://localhost:3000/stores HTTP/1.1 
+content-type: application/json
+
+  {
+    "storeName": "Swagger Rental NorthEast",
+    "storeManager": "Ricardo Morales",
+    "storeState": "Oregon",
+    "storePhone": "+84565874235",
+    "storeEmail": "northweststore@gmail.com",
+    "storeCapacity": "14 x 16 ft.",
+    "storeBrandType": "Tesla"
+  }
+
+### PUT store 
+PUT http://localhost:3000/stores/65f625ef433c69d5913e8143 HTTP/1.1 
+content-type: application/json
+
+  {
+    "storeName": "Swagger Rental NorthEast",
+    "storeManager": "Ricardo Morales",
+    "storeState": "Oregon",
+    "storePhone": "+84565874235",
+    "storeEmail": "northweststore@gmail.com",
+    "storeCapacity": "14 x 16 ft.",
+    "storeBrandType": "Tesla"
+  }
+
+### DELETE store 
+DELETE http://localhost:3000/stores/65f62ebe452141a60cbbf27f HTTP/1.1

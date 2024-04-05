@@ -95,22 +95,20 @@ const createCar = async (req, res) => {
   } else {
     res.status(500).json(response.error || 'An error occured while creating the car.')
   };
-
 };
 
 const updateCar =  async (req, res) => {
-  //pass
-
+  // swagger.tags=['cars']
+  /*
+    #swagger.description = 'Update a car in the database, every field is required. Any field that is ommitted will be set to "NULL"';
+    */
   const carId = new ObjectId(req.params.id);
   const car = {
-  
     carMake: req.body.carMake,
     carModel: req.body.carModel,
     carYear: req.body.carYear,
     carTag: req.body.carTag,
     carStatus: req.body.carStatus
-      
-  
 };
   const response = await mongodb.getDatabase().db().collection('cars').replaceOne({_id: carId} , car);
   if(response.modifiedCount > 0){
@@ -118,28 +116,21 @@ const updateCar =  async (req, res) => {
   }
   else{
       res.status(500).json(response.error || 'Some error occured while updating the car information');
-  
   }
-  
-
-
 };
 
-
-
-
 const deleteCar =  async (req, res) => {
- // pass
-
+  // swagger.tags=['cars']
+  /*
+    #swagger.description = 'Delete a car in the database.;
+    */
  const carId = new ObjectId(req.params.id);
- const result = await mongodb.getDatabase().db().collection('cars').deleteOne({_id: carId});
+ const response = await mongodb.getDatabase().db().collection('cars').deleteOne({_id: carId});
  if (response.deleteCount > 0){
      res.status(204).send();
  }else {
      res.status(500).json(response.error || 'Some error occured while deleting the car information.');
  }
- 
-
 };
 
 

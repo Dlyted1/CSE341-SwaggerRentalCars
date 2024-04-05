@@ -40,8 +40,11 @@ const getEmployee = async (req, res) => {
 
 const createEmployee = async (req, res) => {
   // swagger.tags=['employees']
+  /*
+    #swagger.description = 'Create an employee in the database, every field is required. The employee ID number is automatically assigned by the database after submition.
+    Any field that is ommitted will be set to "NULL"';
+    */
   const employee_record = {
-
     empFName: req.body.empFName,
     empLName: req.body.empLName,
     empEmail: req.body.empEmail,
@@ -58,27 +61,33 @@ const createEmployee = async (req, res) => {
 };
 
 const employeeLogin = (req, res) => {
-  pass
+  // swagger.tags=['employees']
+  /*
+    #swagger.description = 'Employee Login to database, every field is required. Any field that is ommitted will be set to "NULL"';
+    */
+   pass
 }
 
 const employeeLogout = (req, res) => {
-  pass
+  // swagger.tags=['employees']
+  /*
+    #swagger.description = 'Employee logout from database, every field is required. Any field that is ommitted will be set to "NULL"';
+    */
+   pass
 }
 
 const updateEmployee = async (req, res) => {
-  //pass
-
+  // swagger.tags=['employees']
+  /*
+    #swagger.description = 'Update an employee in the database, every field is required. Any field that is ommitted will be set to "NULL"';
+    */
   const employeeId = new ObjectId(req.params.id);
   const employee = {
-
     empFName: req.body.empFName,
     empLName: req.body.empLName,
     empEmail: req.body.empEmail,
     empPhone: req.body.empPhone,
     empAddress: req.body.empAddress
-
-
-
   };
   const response = await mongodb.getDatabase().db().collection('employees').replaceOne({ _id: employeeId }, employee);
   if (response.modifiedCount > 0) {
@@ -86,28 +95,21 @@ const updateEmployee = async (req, res) => {
   }
   else {
     res.status(500).json(response.error || 'Some error occured while updating the employee information');
-
   }
-
-
-
 };
 
-
-
 const deleteEmployee = async (req, res) => {
-  //pass
-
+  // swagger.tags=['employees']
+  /*
+    #swagger.description = 'Delete an employee in the database;
+    */
   const employeeId = new ObjectId(req.params.id);
-  const result = await mongodb.getDatabase().db().collection('employees').deleteOne({ _id: employeeId });
+  const response = await mongodb.getDatabase().db().collection('employees').deleteOne({ _id: employeeId });
   if (response.deleteCount > 0) {
     res.status(204).send();
   } else {
     res.status(500).json(response.error || 'Some error occured while deleting employee information.');
   }
-
-
-
 };
 
 
