@@ -12,7 +12,7 @@ describe('insert', () => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
-        db = await connection.db('cars')
+        db = await connection.db('Swagger_Rental_Cars')
     });
     afterAll(async() => {
         await connection.close()
@@ -22,7 +22,7 @@ describe('insert', () => {
         const cars = db.collection('cars');
 
         const mockCar = {
-              _id: "carId",
+              _id: '660f75091b0bbe82fc5bdb03',
               carMake: "Honda",
               carModel: "Civic",
               carYear: "1980",
@@ -32,15 +32,15 @@ describe('insert', () => {
 
         await cars.insertOne(mockCar)
 
-        const insertedCar = await cars.findOne({ _id: 'carId' });
+        const insertedCar = await cars.findOne({ _id: '660f75091b0bbe82fc5bdb03' });
 
         expect(insertedCar).toEqual(mockCar)
     },
         
     it('should delete a car from the cars collection', async () => {
         const cars = db.collection('cars')
-        await cars.deleteMany({ _id: 'carId' })
-        const deletedCar = await cars.findOne({ _id: 'carId' });
+        await cars.deleteMany({ _id: '660f75091b0bbe82fc5bdb03' })
+        const deletedCar = await cars.findOne({ _id: '660f75091b0bbe82fc5bdb03' });
         expect(deletedCar).toEqual(null)
     })
 )})
