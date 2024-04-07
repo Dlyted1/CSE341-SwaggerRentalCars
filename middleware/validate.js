@@ -72,7 +72,7 @@ const saveStore = (req, res, next) => {
     storeManager: 'required|string',
     storeState: 'required|string',
     storePhone: 'required|string',
-    storeEmail: 'required|email'
+    storeEmail: 'required|email',
     storeCapacity: 'string',
     storeBrandType: 'string'
 
