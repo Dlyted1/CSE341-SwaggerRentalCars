@@ -37,8 +37,8 @@ app
     .use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'] }))
     .use(cors({ origin: '*' }))
 
-// app.use('/', require('./routes'));
-app.use('/', require('./routes/index.js'));
+    // app.use('/', require('./routes'));
+    .use('/', require('./routes/index.js'));
 
 //handle errors
 process.on('uncaughtException', (err, origin) => {
