@@ -5,8 +5,8 @@ const saveCar = (req, res, next) => {
     carMake: 'required|string',
     carModel: 'required|string',
     carYear: 'required|string',
-    carTag: 'required|string',
-    carStatus: 'required|string'
+    carStatus: 'required|string',
+    carTag: 'required|string'
 
   };
   validator(req.body, validationRule, {}, (err, status) => {
@@ -27,7 +27,8 @@ const saveEmployee = (req, res, next) => {
     empFName: 'required|string',
     empLName: 'required|string',
     empEmail: 'required|email',
-    emPhone: 'required|string'
+    emPhone: 'required|string',
+    empAddress: 'required|string'
 
   };
   validator(req.body, validationRule, {}, (err, status) => {
@@ -47,7 +48,9 @@ const saveRenter = (req, res, next) => {
   const validationRule = {
     renterFName: 'required|string',
     renterLName: 'required|string',
-    renterEmail: 'required|email'
+    renterEmail: 'required|email',
+    renterDate: 'string',
+    renterDateOfReturn: 'required|string'
 
   };
   validator(req.body, validationRule, {}, (err, status) => {
@@ -70,6 +73,9 @@ const saveStore = (req, res, next) => {
     storeState: 'required|string',
     storePhone: 'required|string',
     storeEmail: 'required|email'
+    storeCapacity: 'string',
+    storeBrandType: 'string'
+
 
   };
   validator(req.body, validationRule, {}, (err, status) => {
