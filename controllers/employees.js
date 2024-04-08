@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;// Id mongo assigns all database en
 let err;
 
 const getAll = async (req, res) => {
-  // swagger.tags=['employees']
+  // #swagger.tags=['employees']
   /*
     #swagger.description = 'Returns all employees in the database.';
     */
@@ -20,7 +20,7 @@ const getAll = async (req, res) => {
 
 
 const getEmployee = async (req, res) => {
-  // swagger.tags=['employees']
+  // #swagger.tags=['employees']
   /*
     #swagger.description = 'Returns a employee from the database using the employees ID number';
     */
@@ -39,7 +39,7 @@ const getEmployee = async (req, res) => {
 };
 
 const createEmployee = async (req, res) => {
-  // swagger.tags=['employees']
+  // #swagger.tags=['employees']
   /*
     #swagger.description = 'Create an employee in the database, every field is required. The employee ID number is automatically assigned by the database after submition.
     Any field that is ommitted will be set to "NULL"';
@@ -61,7 +61,7 @@ const createEmployee = async (req, res) => {
 };
 
 const employeeLogin = (req, res) => {
-  // swagger.tags=['employees']
+  // #swagger.tags=['employees']
   /*
     #swagger.description = 'Employee Login to database, every field is required. Any field that is ommitted will be set to "NULL"';
     */
@@ -69,7 +69,7 @@ const employeeLogin = (req, res) => {
 }
 
 const employeeLogout = (req, res) => {
-  // swagger.tags=['employees']
+  // #swagger.tags=['employees']
   /*
     #swagger.description = 'Employee logout from database, every field is required. Any field that is ommitted will be set to "NULL"';
     */
@@ -77,7 +77,7 @@ const employeeLogout = (req, res) => {
 }
 
 const updateEmployee = async (req, res) => {
-  // swagger.tags=['employees']
+  // #swagger.tags=['employees']
   /*
     #swagger.description = 'Update an employee in the database, every field is required. Any field that is ommitted will be set to "NULL"';
     */
@@ -99,7 +99,7 @@ const updateEmployee = async (req, res) => {
 };
 
 const deleteEmployee = async (req, res) => {
-  // swagger.tags=['employees']
+  // #swagger.tags=['employees']
   /*
     #swagger.description = 'Delete an employee in the database;
     */

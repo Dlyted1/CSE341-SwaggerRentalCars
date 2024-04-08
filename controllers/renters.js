@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;// Id mongo assigns all database en
 let err;
 
 const getAll = async (req, res) => {
-  // swagger.tags=['renters']
+  // #swagger.tags=['renters']
   /*
     #swagger.description = 'Returns all renters in the database.';
     */
@@ -20,7 +20,7 @@ const getAll = async (req, res) => {
 
 
 const getRenter = async (req, res) => {
-  // swagger.tags=['renters']
+  // #swagger.tags=['renters']
   /*
     #swagger.description = 'Returns a Renters from the database using the renters ID number';
     */
@@ -39,7 +39,7 @@ const getRenter = async (req, res) => {
 };
 
 const createRenter = async (req, res) => {
-  // swagger.tags=['renters']
+  // #swagger.tags=['renters']
   /*
     #swagger.description = 'Create a renter in the database, every field is required. The renter ID number is automatically assigned by the database after submition.
     Any field that is ommitted will be set to "NULL"';
@@ -48,8 +48,9 @@ const createRenter = async (req, res) => {
     renterFName: req.body.renterFName,
     renterLName: req.body.renterLName,
     renterEmail: req.body.renterEmail,
-    renterDate: req.body.renterDate,
-    renterDateOfReturn: req.body.renterDateOfReturn
+    renterRentals: body.renterRentals,
+    renterDate: body.renterDate,
+    renterDateOfReturn: body.renterDateOfReturn
   }
   const response = await mongodb.getDb().db().collection('renters').insertOne(renter_record)
   if (response.acknowledged) {
@@ -61,7 +62,7 @@ const createRenter = async (req, res) => {
 };
 
 const updateRenter = async (req, res) => {
-  // swagger.tags=['renters']
+  // #swagger.tags=['renters']
   /*
     #swagger.description = 'Update a renter in the database, every field is required. Any field that is ommitted will be set to "NULL"';
     */
@@ -69,11 +70,9 @@ const updateRenter = async (req, res) => {
   const renter = {
     renterFName: req.body.renterFName,
     renterLName: req.body.renterLName,
-    renterEmail: req.body.renterEmail,
-    renterDate: req.body.renterDate,
-    renterDateOfReturn: req.body.renterDateOfReturn
+    renterEmail: req.body.renterEmail
   };
-  const response = await mongodb.getDatabase().db().collection('renters').replaceOne({ _id: renterId }, renter);
+  const response = await mongodb.getDatabase().db().collection('renters').updateOne({ _id: renterId }, renter);
   if (response.modifiedCount > 0) {
     res.status(204).send();
   }
@@ -84,7 +83,7 @@ const updateRenter = async (req, res) => {
 };
 
 const deleteRenter = async (req, res) => {
-  // swagger.tags=['renters']
+  // #swagger.tags=['renters']
   /*
     #swagger.description = 'Delete a renter from the database.;
     */
@@ -103,5 +102,5 @@ module.exports = {
   getRenter,
   createRenter,
   updateRenter,
-  deleteRenter
+  deleteRenter, 
 }
