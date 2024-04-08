@@ -8,6 +8,7 @@ router.use('/', require('./swagger'));
 router.use('/cars', require('./cars'));
 router.use('/employees', require('./employees'));
 router.use('/renters', require('./renters'));
+router.use('/rentals', require('./rentals'));
 router.use('/stores', require('./stores'));
 
 router.get('/login', passport.authenticate('github'), (req, res) => { });
