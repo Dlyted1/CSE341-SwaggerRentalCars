@@ -6,17 +6,18 @@
     "version": "1.0.0"
   },
   "host": [
-    "localhost:8080",
     "cse341-swaggerrentalcars.onrender.com"
   ],
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
     "/login": {
       "get": {
+        "tags": [
+          "Login/Logout"
+        ],
         "description": "",
         "responses": {
           "default": {
@@ -27,16 +28,9 @@
     },
     "/logout": {
       "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/api-docs": {
-      "get": {
+        "tags": [
+          "Login/Logout"
+        ],
         "description": "",
         "responses": {
           "default": {
@@ -48,7 +42,7 @@
     "/cars/": {
       "get": {
         "tags": [
-          "cars"
+          "Cars"
         ],
         "description": "Returns all cars in the database.",
         "produces": [
@@ -62,7 +56,7 @@
       },
       "post": {
         "tags": [
-          "cars"
+          "Cars"
         ],
         "description": "Create a car in the database, every field is required. The car ID number is automatically assigned by the database after submition.\r  Any field that is ommitted will be set to \"NULL\"",
         "parameters": [
@@ -110,7 +104,7 @@
     "/cars/{id}": {
       "get": {
         "tags": [
-          "cars"
+          "Cars"
         ],
         "description": "Returns a car from the database using the cars ID number",
         "produces": [
@@ -135,7 +129,7 @@
       },
       "put": {
         "tags": [
-          "cars"
+          "Cars"
         ],
         "description": "Update a car in the database, every field is required. Any field that is ommitted will be set to \"NULL\"",
         "parameters": [
@@ -187,7 +181,7 @@
       },
       "delete": {
         "tags": [
-          "cars"
+          "Cars"
         ],
         "description": "Delete a car in the database.;",
         "parameters": [
@@ -208,7 +202,7 @@
     "/cars/{status}": {
       "get": {
         "tags": [
-          "cars"
+          "Cars"
         ],
         "description": "Returns a car from the database using the cars tag number",
         "produces": [
@@ -235,7 +229,7 @@
     "/cars/{tag}": {
       "get": {
         "tags": [
-          "cars"
+          "Cars"
         ],
         "description": "Returns a car from the database using the cars tag number",
         "produces": [
@@ -262,7 +256,7 @@
     "/employees/": {
       "get": {
         "tags": [
-          "employees"
+          "Employees"
         ],
         "description": "Returns all employees in the database.",
         "produces": [
@@ -276,7 +270,7 @@
       },
       "post": {
         "tags": [
-          "employees"
+          "Employees"
         ],
         "description": "Create an employee in the database, every field is required. The employee ID number is automatically assigned by the database after submition.\r  Any field that is ommitted will be set to \"NULL\"",
         "parameters": [
@@ -324,7 +318,7 @@
     "/employees/{id}": {
       "get": {
         "tags": [
-          "employees"
+          "Employees"
         ],
         "description": "Returns a employee from the database using the employees ID number",
         "produces": [
@@ -349,7 +343,7 @@
       },
       "put": {
         "tags": [
-          "employees"
+          "Employees"
         ],
         "description": "Update an employee in the database, every field is required. Any field that is ommitted will be set to \"NULL\"",
         "parameters": [
@@ -401,7 +395,7 @@
       },
       "delete": {
         "tags": [
-          "employees"
+          "Employees"
         ],
         "description": "Delete an employee in the database;",
         "parameters": [
@@ -422,7 +416,7 @@
     "/employees/login": {
       "post": {
         "tags": [
-          "employees"
+          "Employees"
         ],
         "description": "Employee Login to database, every field is required. Any field that is ommitted will be set to \"NULL\"",
         "responses": {
@@ -435,7 +429,7 @@
     "/employees/logout": {
       "post": {
         "tags": [
-          "employees"
+          "Employees"
         ],
         "description": "Employee logout from database, every field is required. Any field that is ommitted will be set to \"NULL\"",
         "responses": {
@@ -448,7 +442,7 @@
     "/renters/": {
       "get": {
         "tags": [
-          "renters"
+          "Renters"
         ],
         "description": "Returns all renters in the database.",
         "produces": [
@@ -462,7 +456,7 @@
       },
       "post": {
         "tags": [
-          "renters"
+          "Renters"
         ],
         "description": "Create a renter in the database, every field is required. The renter ID number is automatically assigned by the database after submition.\r  Any field that is ommitted will be set to \"NULL\"",
         "parameters": [
@@ -489,9 +483,6 @@
           "204": {
             "description": "No Content"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -504,7 +495,7 @@
     "/renters/{id}": {
       "get": {
         "tags": [
-          "renters"
+          "Renters"
         ],
         "description": "Returns a Renters from the database using the renters ID number",
         "produces": [
@@ -529,7 +520,7 @@
       },
       "put": {
         "tags": [
-          "renters"
+          "Renters"
         ],
         "description": "Update a renter in the database, every field is required. Any field that is ommitted will be set to \"NULL\"",
         "parameters": [
@@ -562,9 +553,6 @@
           "204": {
             "description": "No Content"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -575,7 +563,7 @@
       },
       "delete": {
         "tags": [
-          "renters"
+          "Renters"
         ],
         "description": "Delete a renter from the database.;",
         "parameters": [
@@ -587,8 +575,8 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
+          "default": {
+            "description": ""
           }
         }
       }
@@ -596,7 +584,7 @@
     "/rentals/": {
       "get": {
         "tags": [
-          "rentals"
+          "Rentals"
         ],
         "description": "Returns all rentals in the database.",
         "produces": [
@@ -610,15 +598,41 @@
       },
       "post": {
         "tags": [
-          "rentals"
+          "Rentals"
         ],
-        "description": "Create a rental in the database, every field is required. The renter ID number is automatically assigned by the database after submition if \r  it doesn",
+        "description": "Create a rental in the database, every field is required. The renter ID number is automatically assigned by the database after submition if \r  it does not already exist.\r  Any field that is ommitted will be set to \"NULL\"",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "renterFName": {
+                  "example": "any"
+                },
+                "renterLName": {
+                  "example": "any"
+                },
+                "renterEmail": {
+                  "example": "any"
+                },
+                "renterRentals": {
+                  "example": "any"
+                },
+                "renterDate": {
+                  "example": "any"
+                },
+                "renterDateOfReturn": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "204": {
             "description": "No Content"
-          },
-          "401": {
-            "description": "Unauthorized"
           },
           "412": {
             "description": "Precondition Failed"
@@ -632,7 +646,7 @@
     "/rentals/{id}": {
       "get": {
         "tags": [
-          "rentals"
+          "Rentals"
         ],
         "description": "Returns Rentals from the database using the renter ID number",
         "produces": [
@@ -657,7 +671,7 @@
       },
       "put": {
         "tags": [
-          "rentals"
+          "Rentals"
         ],
         "description": "Update a rental in the database, every field is required. Renter ID is used to update the rental information Any field that is ommitted will be set to \"NULL\"",
         "parameters": [
@@ -673,6 +687,15 @@
             "schema": {
               "type": "object",
               "properties": {
+                "renterFName": {
+                  "example": "any"
+                },
+                "renterLName": {
+                  "example": "any"
+                },
+                "renterEmail": {
+                  "example": "any"
+                },
                 "renterRentals": {
                   "example": "any"
                 },
@@ -693,9 +716,6 @@
           "400": {
             "description": "Bad Request"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -706,7 +726,7 @@
       },
       "delete": {
         "tags": [
-          "rentals"
+          "Rentals"
         ],
         "description": "Delete a rental from the database. Insert a valid Renter ID to delete a rental from the database;",
         "parameters": [
@@ -718,8 +738,8 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
+          "default": {
+            "description": ""
           }
         }
       }
@@ -727,7 +747,7 @@
     "/stores/": {
       "get": {
         "tags": [
-          "stores"
+          "Stores"
         ],
         "description": "Returns all stores in the database.",
         "produces": [
@@ -741,7 +761,7 @@
       },
       "post": {
         "tags": [
-          "stores"
+          "Stores"
         ],
         "description": "Create a store in the database, every field is required. The store ID number is automatically assigned by the database after submition.\r  Any field that is ommitted will be set to \"NULL\"",
         "parameters": [
@@ -795,7 +815,7 @@
     "/stores/{id}": {
       "get": {
         "tags": [
-          "stores"
+          "Stores"
         ],
         "description": "Returns a store from the database using the stores ID number",
         "produces": [
@@ -820,7 +840,7 @@
       },
       "put": {
         "tags": [
-          "stores"
+          "Stores"
         ],
         "description": "Update a store in the database, every field is required. Any field that is ommitted will be set to \"NULL\"",
         "parameters": [
@@ -878,7 +898,7 @@
       },
       "delete": {
         "tags": [
-          "stores"
+          "Stores"
         ],
         "description": "Delete a store from the database, every field is required.;",
         "parameters": [

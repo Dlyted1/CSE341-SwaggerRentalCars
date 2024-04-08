@@ -5,7 +5,7 @@ const ObjectId = require('mongodb').ObjectId;// Id mongo assigns all database en
 let err;
 
 const getAll = async (req, res) => {
-  // #swagger.tags=['cars']
+  // #swagger.tags=['Cars']
   /*
     #swagger.description = 'Returns all cars in the database.';
     */
@@ -20,7 +20,7 @@ const getAll = async (req, res) => {
   };
 
 const getCar = async (req, res) => {
-  // #swagger.tags=['cars']
+  // #swagger.tags=['Cars']
   /*
     #swagger.description = 'Returns a car from the database using the cars ID number';
     */
@@ -39,7 +39,7 @@ const getCar = async (req, res) => {
   };
 
 const getCarByTag = async (req, res) => {
-  // #swagger.tags=['cars']
+  // #swagger.tags=['Cars']
   /*
     #swagger.description = 'Returns a car from the database using the cars tag number';
     */
@@ -58,7 +58,7 @@ const getCarByTag = async (req, res) => {
   };
   
   const getCarByStatus = async (req, res) => {
-    // #swagger.tags=['cars']
+    // #swagger.tags=['Cars']
     /*
       #swagger.description = 'Returns a car from the database using the cars tag number';
       */
@@ -77,7 +77,7 @@ const getCarByTag = async (req, res) => {
     };
 
 const createCar = async (req, res) => {
-  // #swagger.tags=['cars']
+  // #swagger.tags=['Cars']
   /*
     #swagger.description = 'Create a car in the database, every field is required. The car ID number is automatically assigned by the database after submition.
     Any field that is ommitted will be set to "NULL"';
@@ -98,7 +98,7 @@ const createCar = async (req, res) => {
 };
 
 const updateCar =  async (req, res) => {
-  // #swagger.tags=['cars']
+  // #swagger.tags=['Cars']
   /*
     #swagger.description = 'Update a car in the database, every field is required. Any field that is ommitted will be set to "NULL"';
     */
@@ -120,7 +120,7 @@ const updateCar =  async (req, res) => {
 };
 
 const deleteCar =  async (req, res) => {
-  // #swagger.tags=['cars']
+  // #swagger.tags=['Cars']
   /*
     #swagger.description = 'Delete a car in the database.;
     */

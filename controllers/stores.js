@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;// Id mongo assigns all database en
 let err;
 
 const getAll = async (req, res) => {
-  // #swagger.tags=['stores']
+  // #swagger.tags=['Stores']
   /*
     #swagger.description = 'Returns all stores in the database.';
     */
@@ -20,7 +20,7 @@ const getAll = async (req, res) => {
 
 
 const getStore = async (req, res) => {
-  // #swagger.tags=['stores']
+  // #swagger.tags=['Stores']
   /*
     #swagger.description = 'Returns a store from the database using the stores ID number';
     */
@@ -39,7 +39,7 @@ const getStore = async (req, res) => {
 };
 
 const createStore = async (req, res) => {
-  // #swagger.tags=['stores']
+  // #swagger.tags=['Stores']
   /*
     #swagger.description = 'Create a store in the database, every field is required. The store ID number is automatically assigned by the database after submition.
     Any field that is ommitted will be set to "NULL"';
@@ -62,7 +62,7 @@ const createStore = async (req, res) => {
 };
 
 const updateStore = async (req, res) => {
-   // #swagger.tags=['stores']
+   // #swagger.tags=['Stores']
   /*
     #swagger.description = 'Update a store in the database, every field is required. Any field that is ommitted will be set to "NULL"';
     */
@@ -87,7 +87,7 @@ const updateStore = async (req, res) => {
 };
 
 const deleteStore = async (req, res) => {
-  // #swagger.tags=['stores']
+  // #swagger.tags=['Stores']
   /*
     #swagger.description = 'Delete a store from the database, every field is required.;
     */

@@ -49,8 +49,9 @@ const saveRenter = (req, res, next) => {
     renterFName: 'required|string',
     renterLName: 'required|string',
     renterEmail: 'required|email',
+    renterRentals: 'string',
     renterDate: 'string',
-    renterDateOfReturn: 'required|string'
+    renterDateOfReturn: 'string'
 
   };
   validator(req.body, validationRule, {}, (err, status) => {
@@ -91,12 +92,36 @@ const saveStore = (req, res, next) => {
   });
 };
 
+const saveRental = (req, res, next) => {
+  const validationRule = {
+    renterFName: 'required|string',
+    renterLName: 'required|string',
+    renterEmail: 'required|email',
+    renterRentals: 'required|string',
+    renterDate: 'required|string',
+    renterDateOfReturn: 'required|string'
+
+  };
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: 'Validation failed',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
+};
+
 
 
 module.exports = {
   saveCar,
   saveEmployee,
   saveRenter,
-  saveStore
+  saveStore,
+  saveRental,
 
 };

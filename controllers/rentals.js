@@ -4,14 +4,14 @@ const ObjectId = require('mongodb').ObjectId;// Id mongo assigns all database en
 let err;
 
 const getAll = async (req, res) => {
-  // #swagger.tags=['rentals']
+  // #swagger.tags=['Rentals']
   /*
     #swagger.description = 'Returns all rentals in the database.';
     */
   const result = await mongodb.getDb()
     .db()
     .collection('renters')
-    .find({renterRentals: "" != undefined || null || ''});
+    .find( { renterRentals: { $ne: undefined || null } });
   result.toArray().then((rentals) => {
     res.setHeader('Content-Type', "application/json");
     res.status(200).json(rentals);
@@ -20,7 +20,7 @@ const getAll = async (req, res) => {
 
 
 const getRental = async (req, res) => {
-  // #swagger.tags=['rentals']
+  // #swagger.tags=['Rentals']
   /*
     #swagger.description = 'Returns Rentals from the database using the renter ID number';
     */
@@ -39,21 +39,30 @@ const getRental = async (req, res) => {
 };
 
 const createRental = async (req, res) => {
-    // #swagger.tags=['rentals']
+    // #swagger.tags=['Rentals']
     /*
       #swagger.description = 'Create a rental in the database, every field is required. The renter ID number is automatically assigned by the database after submition if 
-      it doesn't already exist.
+      it does not already exist.
       Any field that is ommitted will be set to "NULL"';
       */
-    const rental_record = {
+
+    const options = { upsert: true };
+    const rental_record = { $set: {
         renterFName: req.body.renterFName,
         renterLName: req.body.renterLName,
         renterEmail: req.body.renterEmail,
         renterRentals: req.body.renterRentals,
         renterDate: req.body.renterDate,
         renterDateOfReturn: req.body.renterDateOfReturn
+    }}
+    const query = {
+      renterFName: req.body.renterFName,
+      renterLName: req.body.renterLName,
+      renterEmail: req.body.renterEmail,
     }
-    const response = await mongodb.getDb().db().collection('renters').insertOne(rental_record)
+
+
+    const response = await mongodb.getDb().db().collection('renters').updateOne(query, rental_record, options)
     if (response.acknowledged) {
       res.status(204).send()
     } else {
@@ -63,7 +72,7 @@ const createRental = async (req, res) => {
   };
   
   const updateRental = async (req, res) => {
-    // #swagger.tags=['rentals']
+    // #swagger.tags=['Rentals']
     /*
       #swagger.description = 'Update a rental in the database, every field is required. Renter ID is used to update the rental information Any field that is ommitted will be set to "NULL"';
       */
@@ -75,12 +84,22 @@ const createRental = async (req, res) => {
         res.status(400).json('Must use a valid Renter ID.')
       }
     const renterId = new ObjectId(req.params.id);
-    const rental = {
-      renterRentals: req.body.renterRentals,
-      renterDate: req.body.renterDate,
-      renterDateOfReturn: req.body.renterDateOfReturn
-    };
-    const response = await mongodb.getDatabase().db().collection('renters').updateOne({ _id: renterId }, rental);
+    const options = { upsert: true };
+    const rental = { $set: {
+        renterFName: req.body.renterFName,
+        renterLName: req.body.renterLName,
+        renterEmail: req.body.renterEmail,
+        renterRentals: req.body.renterRentals,
+        renterDate: req.body.renterDate,
+        renterDateOfReturn: req.body.renterDateOfReturn
+    }}
+    const query = {
+      renterFName: req.body.renterFName,
+      renterLName: req.body.renterLName,
+      renterEmail: req.body.renterEmail,
+    }
+    
+    const response = await mongodb.getDb().db().collection('renters').updateOne(query, rental, options);
     if (response.modifiedCount > 0) {
       res.status(204).send();
     }
@@ -91,20 +110,18 @@ const createRental = async (req, res) => {
   };
 
   const deleteRental = async (req, res) => {
-    // #swagger.tags=['rentals']
+    // #swagger.tags=['Rentals']
     /*
       #swagger.description = 'Delete a rental from the database. Insert a valid Renter ID to delete a rental from the database;
       */
-    const renterId = new ObjectId(req.params.renterLName);
-    const response = await mongodb.getDatabase().db().collection('renters').updateOne({ renterLName: renterId });
+    const renterId = new ObjectId(req.params.id);
+    const response = await mongodb.getDb().db().collection('renters').updateOne({ _id: renterId });
     if (response.deleteCount > 0) {
       res.status(204).send();
     } else {
       res.status(500).json(response.error || 'Some error occured while deleting the rental information.');
     }
   };
-  
-  
   
   module.exports = {
     getAll,

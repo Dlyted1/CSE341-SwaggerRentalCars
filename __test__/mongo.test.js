@@ -9,8 +9,6 @@ describe('insert', () => {
     beforeAll(async () => {
 
         connection = await MongoClient.connect(process.env.MONGODB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
         });
         db = await connection.db('Swagger_Rental_Cars')
     });

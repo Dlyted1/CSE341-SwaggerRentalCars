@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;// Id mongo assigns all database en
 let err;
 
 const getAll = async (req, res) => {
-  // #swagger.tags=['renters']
+  // #swagger.tags=['Renters']
   /*
     #swagger.description = 'Returns all renters in the database.';
     */
@@ -20,7 +20,7 @@ const getAll = async (req, res) => {
 
 
 const getRenter = async (req, res) => {
-  // #swagger.tags=['renters']
+  // #swagger.tags=['Renters']
   /*
     #swagger.description = 'Returns a Renters from the database using the renters ID number';
     */
@@ -39,7 +39,7 @@ const getRenter = async (req, res) => {
 };
 
 const createRenter = async (req, res) => {
-  // #swagger.tags=['renters']
+  // #swagger.tags=['Renters']
   /*
     #swagger.description = 'Create a renter in the database, every field is required. The renter ID number is automatically assigned by the database after submition.
     Any field that is ommitted will be set to "NULL"';
@@ -62,7 +62,7 @@ const createRenter = async (req, res) => {
 };
 
 const updateRenter = async (req, res) => {
-  // #swagger.tags=['renters']
+  // #swagger.tags=['Renters']
   /*
     #swagger.description = 'Update a renter in the database, every field is required. Any field that is ommitted will be set to "NULL"';
     */
@@ -83,7 +83,7 @@ const updateRenter = async (req, res) => {
 };
 
 const deleteRenter = async (req, res) => {
-  // #swagger.tags=['renters']
+  // #swagger.tags=['Renters']
   /*
     #swagger.description = 'Delete a renter from the database.;
     */
