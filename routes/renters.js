@@ -8,9 +8,9 @@ const { isAuthenticated } = require('../middleware/authenticate');
 router.get('/', rentersController.getAll);
 router.get('/:id', rentersController.getRenter);
 
-router.post('/',  validation.saveRenter, rentersController.createRenter);
-router.put('/:id', validation.saveRenter, rentersController.updateRenter);
-router.delete('/:id',  rentersController.deleteRenter);
+router.post('/', isAuthenticated, validation.saveRenter, rentersController.createRenter);
+router.put('/:id', isAuthenticated, validation.saveRenter, rentersController.updateRenter);
+router.delete('/:id', isAuthenticated, rentersController.deleteRenter);
 
 
 module.exports = router
